@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template"
+>
+<head>
+  <meta charset="UTF-8">
+  <title>Edit patient</title>
+</head>
+<body>
+<div layout:fragment="content" class="card m-5">
+  <div class="card-header d-flex align-items-center justify-content-between pb-3 pt-3">
+    <h5 class="float-start"><i class="fa-solid fa-user-edit"></i><span th:text="' Edit patient #' + ${patient.id} + ' :'"></span></h5>
+
+  </div>
+  <div class="card-body">
+    <form th:object="${patient}" method="post" th:action="@{/admin/save(page=${page}, size=${size}, keyword=${keyword})}" class="needs-validation row row-cols-3" novalidate>
+      <input type="hidden" name="id" th:field="*{id}" th:value="*{id}" required>
+      <div class="mb-3 col">
+        <label for="patientName" class="form-label">Name</label>
+        <input type="text" class="form-control" th:class="${#fields.hasErrors('name')}? 'form-control is-invalid' : 'form-control' " id="patientName" name="name" th:field="*{name}" th:value="*{name}" required>
+        <div class="invalid-feedback" th:errors="${patient.name}"></div>
+      </div>
+      <div class="mb-3 col">
+        <label for="patientDateOfBirth" class="form-label">Date of birth</label>
+        <input type="date" class="form-control" th:class="${#fields.hasErrors('dateOfBirth')}? 'form-control is-invalid' : 'form-control' " id="patientDateOfBirth" name="dateOfBirth" th:value="${patient.dateOfBirth}" required>
+        <div class="invalid-feedback">
+          Please select a date.
+        </div>
+      </div>
+      <div class="mb-3 col">
+        <label for="patientScore" class="form-label">Score</label>
+        <input type="text" th:class="${#fields.hasErrors('score')}? 'form-control is-invalid' : 'form-control' " name="score" id="patientScore" th:field="*{score}" th:value="*{score}" required>
+        <div class="invalid-feedback" th:errors="*{score}"></div>
+      </div>
+      <div class="mb-3 col-12">
+        <input class="form-check-input" type="checkbox" name="sick" id="patientSick" th:checked="*{sick}">
+        <label class="form-check-label" for="patientSick">
+          Patient is sick
+        </label>
+      </div>
+      <button type="submit" class="ms-3 btn btn-primary col-auto"><i class="fa-solid fa-user-edit"></i> Edit patient</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
