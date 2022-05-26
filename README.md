@@ -1,10 +1,10 @@
 # SpringMVC
 - This project is a web application using a Mysql database for managing a hospital's **patients**.
 
-![](src/main/resources/static/images/readme-images/app demo 1.gif)
+![](src/main/resources/static/images/readme-images/app_demo_1.gif)
 
-![](src/main/resources/static/images/readme-images/app demo 2.gif)
-### Technologies :
+![](src/main/resources/static/images/readme-images/app_demo_2.gif)
+## Technologies :
 
 - SpringMVC
 - Spring Data JPA
@@ -12,7 +12,7 @@
 - Spring Security
 - MySQL
 
-### Entities:
+## Entities:
 **1. The entity :**
 
 This application only needs to manage one entity which is the `patients` entity, this entity is defined by :
@@ -52,7 +52,7 @@ Page<Patient> findByNameContains(String keyword, Pageable pageable);
 ```
 In this repository we have 2 function, but we will also be working with some of the standard JPA repository functions.
 
-### What we do in this app
+## What we do in this app
 
 This application is able to manage patients by :
 
@@ -61,7 +61,7 @@ This application is able to manage patients by :
 - Deleting a patient `when autheticated as admin`
 - Adding or modifying an existing patient `when autheticated as admin`
 
-### Security and authentication with Spring Security
+## Security and authentication with Spring Security
 
 The index page can be accessed by everyone however the add and modify page can only be accessed only by users who have the admin role.
 Only users with the admin role can perform the delete/add/modify actions.
@@ -145,10 +145,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 }
 ```
-### Project Structure
-![](src/main/resources/static/images/readme-images/project structure.png)
+## Project Structure
+![](src/main/resources/static/images/readme-images/project_structure.png)
 
-### How this application works
+## How this application works
 
 >Index :
 
@@ -158,11 +158,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 ![](src/main/resources/static/images/readme-images/login.png)
 >admin view :
 
-![](src/main/resources/static/images/readme-images/admin view.png)
+![](src/main/resources/static/images/readme-images/admin_view.png)
 >add patient form with validation :
 
-![](src/main/resources/static/images/readme-images/add patient.png)
+![](src/main/resources/static/images/readme-images/add_patient.png)
 
 >modify patient with validation :
 
-![](src/main/resources/static/images/readme-images/edit patient.png)
+![](src/main/resources/static/images/readme-images/edit_patient.png)
